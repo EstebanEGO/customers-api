@@ -1,5 +1,5 @@
 const Common = {
-    url_api: "http://127.0.0.1:5000/api/custumers",
+    url_api: "http://127.0.0.1:5000/api/customers",
     id: "ID",
     full_name: "Nombre completo",
     phone: "Telefono",

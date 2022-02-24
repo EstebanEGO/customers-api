@@ -4,13 +4,13 @@ from ..utils.db import db
 from datetime import datetime
 customers_bp = Blueprint('customers', __name__)
 
-@customers_bp.route("/api/custumers", methods = ['GET'])
+@customers_bp.route("/api/customers", methods = ['GET'])
 def index():
     customers = Customer.query.all()
     result = customers_schema.dump(customers)
     return jsonify(result)
 
-@customers_bp.route("/api/custumers", methods = ['POST'])
+@customers_bp.route("/api/customers", methods = ['POST'])
 def store():
     form = request.get_json()
     name = form['name']
@@ -27,12 +27,12 @@ def store():
 
     return customer_schema.jsonify(new_customer)
 
-@customers_bp.route("/api/custumers/<int:id>", methods = ['GET'])
+@customers_bp.route("/api/customers/<int:id>", methods = ['GET'])
 def edit(id):
     customer = Customer.query.get(id)
     return customer_schema.jsonify(customer)
 
-@customers_bp.route("/api/custumers/<int:id>", methods = ['PUT'])
+@customers_bp.route("/api/customers/<int:id>", methods = ['PUT'])
 def update(id):
     customer = Customer.query.get(id)
     form = request.get_json()
@@ -47,7 +47,7 @@ def update(id):
     db.session.commit()
     return customer_schema.jsonify(customer)
 
-@customers_bp.route("/api/custumers/<int:id>", methods = ['DELETE'])
+@customers_bp.route("/api/customers/<int:id>", methods = ['DELETE'])
 def destroy(id):
     customer = Customer.query.get(id)
     db.session.delete(customer)
