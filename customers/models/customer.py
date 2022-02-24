@@ -1,6 +1,3 @@
-from dataclasses import fields
-
-import customers
 from ..utils.db import db, ma
 
 class Customer(db.Model):
